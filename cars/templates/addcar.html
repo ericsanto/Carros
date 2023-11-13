@@ -1,0 +1,34 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% bootstrap_css %}
+  {% bootstrap_messages %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+  {% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col">
+    <form action="{% url 'addcar' %}" method="POST" enctype="multipart/form-data" class="form">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <button class="btn btn-secondary" type="submit">Adicionar Carro</button>
+    </form> 
+  </div>
+  </div>
+</div>
+  {% endblock %}
+
+  {% block footer %}
+  {% endblock %}
+
+</body>
+</html>
